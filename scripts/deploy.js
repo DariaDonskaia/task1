@@ -1,12 +1,11 @@
 const hre = require("hardhat"); 
 
 async function main() {
-  const [deployer] = await ethers.getSigners(); 
-
+  const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address); 
 
   const ERC20 = await hre.ethers.getContractFactory("myERC20"); 
-  const myerc20 = await ERC20.deploy(); 
+  const myerc20 = await ERC20.deploy("myERC20", "MERC20"); 
 
   await myerc20.deployed(); 
 
